@@ -7,6 +7,7 @@ use App\Models\groups;
 use App\Models\idle;
 use App\Models\labs;
 use App\Models\labstudents;
+use App\Models\student_courses;
 use App\Models\teacher;
 use App\Models\users_groups;
 use Illuminate\Http\Request;
@@ -19,6 +20,11 @@ class TeacherController extends Controller
 
     public function index(){
         return view('teacher.dashboard');
+    }
+
+    public function removeStudent($student_id, $course_id){
+        $course = student_courses::where('student_id', $student_id)->where('course_id', $course_id)->get()->first()->delete();
+        return back();
     }
 
     public function removeStudentGroup($id){

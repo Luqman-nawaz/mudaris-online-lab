@@ -62,6 +62,7 @@ Route::middleware(['auth:teacher'])->group(function () {
     Route::get('/teacher/student/{student_id}/{lab_id}/progress', [PagesController::class, 'studentProgress']);
     Route::get('/teacher/student/{student_id}/{lab_id}/feedback', [PagesController::class, 'studentFeedback']);
     Route::post('/teacher/student/{student_id}/{lab_id}/feedback', [PagesController::class, 'studentFeedbacksave']);
+    Route::delete('/teacher/student/{student_id}/{course_id}/remove', [TeacherController::class, 'removeStudent']);
 });
 
 Route::middleware([

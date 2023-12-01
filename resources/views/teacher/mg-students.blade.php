@@ -125,6 +125,11 @@
                   <td>{{$loop->iteration}}</td>
                   <td>{{$student->name}}</td>
                   <td>{{$student->email}}</td>
+                  <td><form action="/teacher/student/{{$student->id}}/{{$courses->id}}/remove" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger btn-sm">Remove Student</button>
+                  </form></td>
               </tr>
             @endforeach
           </tbody>

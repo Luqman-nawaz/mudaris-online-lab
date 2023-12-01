@@ -123,7 +123,7 @@
           <a href="/teacher/courses/"><button class="btn btn-block btn-primary"> Manage Courses </button></a>
         </div>
       </div>
-
+{{-- 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
 
       <h2>My Students</h2>
@@ -150,7 +150,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
+      </div> --}}
     </main>
   </div>
 </div>
