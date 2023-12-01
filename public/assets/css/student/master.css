@@ -1,0 +1,69 @@
+body {
+    background-color: #f8f9fa;
+    font-family: Arial, sans-serif;
+}
+.subject-card {
+    margin-bottom: 20px;
+  }
+
+.container {
+    margin-top: 50px;
+}
+
+.subject-card {
+    background-color: #e2ffff;
+    border: 1px solid #bddcff;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.subject-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.subject-card h4 {
+    margin-top: 0;
+}
+
+.task-card {
+    background-color: #fff7e2;
+    border: 1px solid #ffe7b3;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.task-card h4 {
+    margin-top: 0;
+}
+
+.task-card p {
+    margin-bottom: 10px;
+}
+
+.solve-btn {
+    width: 100%;
+}
+
+.submission-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submission-card h4 {
+    margin-top: 0;
+}
+
+.submission-card p {
+    margin-bottom: 10px;
+}

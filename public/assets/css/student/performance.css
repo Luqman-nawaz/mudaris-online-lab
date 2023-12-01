@@ -1,0 +1,61 @@
+/* Add your desired styles for the page here */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+ 
+   
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.heading {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+th {
+  background-color: #c8e2f4;
+}
+
+input[type="number"] {
+  width: 60px;
+  text-align: center;
+}
+
+.labs-missed {
+  font-weight: bold;
+  color: red;
+}
+
+.percentage {
+  font-weight: bold;
+}
+
+.lab-marks {
+  font-style: italic;
+}
