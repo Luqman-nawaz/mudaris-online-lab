@@ -96,6 +96,16 @@
 
 
 <main class="form-signin w-100 m-auto">
+  
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <p style="text-align: center">{{ $error }}</p>
+          @endforeach
+      </ul>
+  </div>
+@endif
     <div class="container">
       <div class="card m-4">
     <form method="POST" action="{{ route('teacherlogin') }}" class="mx-auto col-10 col-md-8 col-lg-6">  
@@ -104,16 +114,16 @@
       <h1 class="h3 mb-3 fw-normal text-center">Teacher Sign in</h1>
   
       <div class="form-floating m-2">
-        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-        <label for="floatingInput">Email address</label>
+        <input required  type="email" name="email" class="form-control" id="floatinginput required " placeholder="name@example.com">
+        <label for="floatinginput required ">Email address</label>
       </div>
       <div class="form-floating m-2">
-        <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <input required  type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
   
       <div class="form-check text-start my-3 m-2">
-        <input class="form-check-input" type="checkbox" value="remember-me" id="flexCheckDefault">
+        <input required  class="form-check-input required " type="checkbox" value="remember-me" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Remember me
         </label>

@@ -96,30 +96,40 @@
 
 
 <main class="form-signin w-100 m-auto">
+  
+  @if (count($errors) > 0)
+  <div class="alert alert-danger">
+      <ul>
+          @foreach ($errors->all() as $error)
+          <p style="text-align: center">{{ $error }}</p>
+          @endforeach
+      </ul>
+  </div>
+  @endif
     <div class="container">
     <form method="POST" action="{{ route('register') }}" class="mx-auto col-10 col-md-8 col-lg-6">  
       @csrf
       <h1 class="h3 mb-3 fw-normal text-center mt-3">Student Registration</h1>
   
       <div class="form-floating m-2">
-        <input type="text" class="form-control" id="floatingInput" name="name" placeholder="name@example.com">
+        <input required type="text" class="form-control" id="floatingInput" name="name" placeholder="name@example.com">
         <label for="floatingInput">Full Name</label>
       </div>
       <div class="form-floating m-2">
-        <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+        <input required type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
       <div class="form-floating m-2">
-        <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+        <input required type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
         <label for="floatingPassword">Password</label>
       </div>
       <div class="form-floating m-2">
-        <input type="password" class="form-control" id="floatingPassword" name="password_confirmation" placeholder="Password">
+        <input required type="password" class="form-control" id="floatingPassword" name="password_confirmation" placeholder="Password">
         <label for="floatingPassword">Confirm Password</label>
       </div>
       <div class="mb-3 m-2">
         <label for="formFile" class="form-label">Upload University Document</label>
-        <input class="form-control" type="file" id="formFile">
+        <input required class="form-control" type="file" id="formFile">
       </div>
 
       <button class="btn btn-primary w-100 py-2 m-2" type="submit">Register</button>

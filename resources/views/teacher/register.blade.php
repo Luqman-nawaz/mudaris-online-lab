@@ -105,24 +105,24 @@
           
           
           <div class="form-floating m-2">
-            <input type="text" class="form-control" id="floatingInput" name="name" placeholder="name@example.com">
+            <input required type="text" class="form-control" id="floatingInput" name="name" placeholder="name@example.com">
             <label for="floatingInput">Full Name</label>
           </div>
           <div class="form-floating m-2">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
+            <input required type="email" class="form-control" id="floatingInput" name="email" placeholder="name@example.com">
             <label for="floatingInput">Email address</label>
           </div>
           <div class="form-floating m-2">
-            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            <input required type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
           <div class="form-floating m-2">
-            <input type="password" class="form-control" id="floatingPassword" name="password_confirmation" placeholder="Password">
+            <input required type="password" class="form-control" id="floatingPassword" name="password_confirmation" placeholder="Password">
             <label for="floatingPassword">Password</label>
           </div>
           <div class="mb-3 m-2">
             <label for="formFile" class="form-label">Upload Teacher Card</label>
-            <input class="form-control" type="file" id="formFile">
+            <input required class="form-control" type="file" id="formFile">
           </div>
 
           <button class="btn btn-primary w-100 py-2 m-2" type="submit">Register</button>
