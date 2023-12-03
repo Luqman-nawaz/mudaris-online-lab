@@ -123,7 +123,6 @@
               <th scope="col">#</th>
               <th scope="col">Name</th>
               <th scope="col">Total Labs</th>
-              <th scope="col">Add Weekly Labs</th>
               <th scope="col">Students</th>
               <th scope="col">Create Groups</th>
               <th scope="col">Remove Course</th>
@@ -135,7 +134,6 @@
                 <td>{{$loop->iteration}}</td>
                 <td>{{$course->course_name}}</td>
                 <td>{{$course->labs->count()}}</td>
-                <td><a href="/teacher/lab/add"><button class="btn btn-success btn-sm">Add Lab</button></a></td>
                 <td><a href="/teacher/{{$course->id}}/students"><button class="btn btn-success btn-sm">View Students</button></a></td>
                 <td><a href="/teacher/{{$course->id}}/students/groups"><button class="btn btn-success btn-sm">Group Students</button></a></td>
                 <td>

@@ -56,12 +56,9 @@
                         <input type="text" style="display: none;" name="lab_id" value="{{$lab->id}}" />
                         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Send Message</button>
                     </div>
-                </form>
+                  </form>
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  View Teacher's Feedback
-                </button>
+
 
                 <!-- Modal -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -72,7 +69,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>
                       <div class="modal-body">
-                        {{App\Models\labstudents::where('user_id', $user_id)->where('lab_id', $lab_id)->get()->first()->teacher_feedback}}
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -125,6 +121,11 @@
                 </div>
               </div>
               
+              <div class="card">
+                <div class="card-body">
+                  {{App\Models\labstudents::where('user_id', $user_id)->where('lab_id', $lab_id)->get()->first()->teacher_feedback}}
+                </div>
+              </div>
               
             </div>
         </div>

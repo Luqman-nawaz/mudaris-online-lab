@@ -251,8 +251,6 @@ img{ max-width:100%;}
                               <h4>John Doe</h4>
                               <p class="text-secondary mb-1">Full Stack Developer</p>
                               <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
-                              <button class="btn btn-primary">Alert Student</button>
-                              <button class="btn btn-secondary">Enroll</button>
                             </div>
                           </div>
                         </div>
