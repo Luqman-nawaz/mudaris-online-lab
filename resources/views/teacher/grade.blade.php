@@ -265,7 +265,7 @@ img{ max-width:100%;}
                         <form action="/teacher/{{$lab_id}}/{{$user_id}}/grade" method="post">
                             @csrf
                             @method('post')
-                            <input type="text" name="marks" class="form-control" placeholder="Enter Marks" required aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="number" name="marks" class="form-control" placeholder="Enter Marks" required aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-success" type="submit" id="button-addon2">Mark Grade</button>
                         </form>
                       </div>

@@ -121,6 +121,9 @@ class TeacherController extends Controller
     }
 
     public function savegradeStudent($lab_id, $user_id, Request $request){
+        $request->validate([
+            'marks' => 'required|integer',
+        ]);
         $lab = labstudents::where('user_id', $user_id)->where('lab_id', $lab_id)->get()->first();
         $lab->score = $request->marks;
         $lab->save();

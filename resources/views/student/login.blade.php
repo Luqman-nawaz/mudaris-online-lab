@@ -121,7 +121,7 @@
       </div>
   
       <div class="form-check text-start my-3 m-2">
-        <input required class="form-check-input" name="remember" type="checkbox" value="remember-me" id="flexCheckDefault">
+        <input class="form-check-input" name="remember" type="checkbox" value="remember-me" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Remember me
         </label>

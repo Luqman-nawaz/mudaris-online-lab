@@ -17,7 +17,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">Labs Score</th>
-                <th scope="col">Course Grade</th>
+                <th scope="col">Total Score</th>
               </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                     <td>{{$loop->iteration}}</td>
                     <td>{{$performence->lab->lab_name}}</td>
                     <td>{{$performence->score}}</td>
-                    <td>A+</td>
+                    <td>{{$performence->lab->marks}}</td>
                 </tr>
               @endforeach
             </tbody>
