@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Blog Template · Bootstrap v5.3</title>
+    <title>Teacher Login</title>
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -98,14 +98,14 @@
 <main class="form-signin w-100 m-auto">
   
   @if (count($errors) > 0)
-  <div class="alert alert-danger">
-      <ul>
-          @foreach ($errors->all() as $error)
-          <p style="text-align: center">{{ $error }}</p>
-          @endforeach
-      </ul>
-  </div>
-@endif
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+              <p style="text-align: center">{{ $error }}</p>
+              @endforeach
+          </ul>
+      </div>
+      @endif
     <div class="container">
       <div class="card m-4">
     <form method="POST" action="{{ route('teacherlogin') }}" class="mx-auto col-10 col-md-8 col-lg-6">  
@@ -123,7 +123,7 @@
       </div>
   
       <div class="form-check text-start my-3 m-2">
-        <input required  class="form-check-input required " type="checkbox" value="remember-me" id="flexCheckDefault">
+        <input class="form-check-input required " type="checkbox" value="remember-me" id="flexCheckDefault">
         <label class="form-check-label" for="flexCheckDefault">
           Remember me
         </label>

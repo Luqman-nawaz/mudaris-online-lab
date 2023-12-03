@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class TeacherController extends Controller
 {
@@ -145,6 +146,12 @@ class TeacherController extends Controller
     public function save(Request $request){
 
         $password = Hash::make($request->password);
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:teachers',
+            'password' => 'required',
+        ]);
         
         $broker = array(
             'name' => $request->name,
@@ -152,13 +159,12 @@ class TeacherController extends Controller
             'password' => $password,
         );
 
-        teacher::create($broker);
-        
-        if(Auth::guard('teacher')->attempt($request->only('email', 'password'))){
+        if(teacher::create($broker)){
+            Auth::guard('teacher')->attempt($request->only('email', 'password'));
             $broker = Auth::guard('teacher')->user();
             return redirect('/teacher/dashboard');
         }else{
-            return redirect('/')->with('error', 'Could not register as a broker!');
+            return Redirect::back()->withErrors(['msg' => 'Could not register as a teacher!']);
         }
     }
 
@@ -168,7 +174,7 @@ class TeacherController extends Controller
             $broker = Auth::guard('teacher')->user();
             return redirect('/teacher/dashboard');
         }else{
-            return redirect('/teacher')->with('error', 'Could not register as a teacher!');
+            return Redirect::back()->withErrors(['msg' => 'Login credentials do not match.']);
         }
     }
 

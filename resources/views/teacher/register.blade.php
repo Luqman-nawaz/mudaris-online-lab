@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.115.4">
-    <title>Blog Template · Bootstrap v5.3</title>
+    <title>Teacher Registration</title>
 
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -97,6 +97,17 @@
 
 <main class="form-signin w-100 m-auto">
     <div class="container">
+
+      @if (count($errors) > 0)
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+              <p style="text-align: center">{{ $error }}</p>
+              @endforeach
+          </ul>
+      </div>
+      @endif
+    
       <div class="card m-4">
         <form  action="/teacher/register" method="post" class="mx-auto col-10 col-md-8 col-lg-6">  
           @csrf
