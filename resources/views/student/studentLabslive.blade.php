@@ -17,12 +17,12 @@
               <p class="blog-post-meta">{{$lab->created_at->diffForHumans();}} <a href="#">{{Auth::user()->name}}</a></p>
   
               <p>{{$lab->task_description}}</p>
-              <form action="/lab/{{$lab->id}}/compile" method="post">
-                @csrf
-                @method('post')
-                <textarea class="form-control" rows="10" cols="10" name="code">{{App\Models\labstudents::where('user_id', $user_id)->where('lab_id', $lab_id)->get()->first()->current_answer}}</textarea>
-                <button class="btn btn-block btn-primary m-2"> Compile </button>
-              </form>
+              @if(App\Models\labstudents::where('user_id', Auth::id())->where('lab_id', $lab->id)->get()->isNotEmpty())
+                  @php $co = App\Models\labstudents::where('user_id', Auth::id())->where('lab_id', $lab->id)->get()->first()->current_answer; @endphp
+              @else
+                  @php $co = " "; @endphp
+              @endif
+              <livewire:create-i-d-e :labid="$lab->id" :currentanswer="$co"/>
               <form action="/student/submit" method="post">
                 @csrf
                 @method('post')
