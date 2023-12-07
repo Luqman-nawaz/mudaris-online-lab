@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('idles', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('lab_id');
-            $table->unsignedBigInteger('teacher_id');
-            $table->unsignedBigInteger('course_id');
+            $table->unsignedBigInteger('student_id')->nullable();
+            $table->unsignedBigInteger('lab_id')->nullable();
+            $table->unsignedBigInteger('teacher_id')->nullable();
+            $table->unsignedBigInteger('course_id')->nullable();
             $table->foreign('student_id')->references('id')->on('users');
             $table->foreign('lab_id')->references('id')->on('labs');
             $table->foreign('teacher_id')->references('id')->on('teachers');

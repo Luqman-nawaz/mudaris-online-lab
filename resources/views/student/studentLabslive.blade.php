@@ -159,6 +159,7 @@
       <input type="text" name="lab_id" style="display: none;" value="{{$lab->id}}"/>
       <input type="text" name="teacher_id" style="display: none;" value="{{$lab->course->id}}"/>
       <input type="text" name="course_id" style="display: none;" value="{{$lab->course->teacher->id}}"/>
+      
     </form>
     <script>
       var timeout;

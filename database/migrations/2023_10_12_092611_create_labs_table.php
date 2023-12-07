@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('task_name');
             $table->string('task_description');
             $table->string('marks');
+            $table->string('assign_to')->nullable();
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers');
             $table->timestamps();

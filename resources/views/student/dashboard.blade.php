@@ -31,21 +31,44 @@
             
         <h3 class="text-center mt-3">Pending Labs</h3>
         <div class="row">
-          @foreach(App\Models\student_courses::where('student_id', Auth::id())->get() as $course)
-          @foreach($course->course->labs as $lab)
-              <div class="col-4">
-                  <div class="card mt-3" style="width: 18rem;">
-                      <div class="card-body">
-                        <h5 class="card-title">{{$lab->course->course_name}}</h5>
-                        <hr>
-                      <h5 class="card-title">{{$lab->lab_name}}</h5>
-                      <p class="card-text">{{$lab->task_description}}</p>
-                      <a href="/student/lab/{{$lab->id}}/live" class="btn btn-primary">View Lab</a>
-                      </div>
-                  </div>
-              </div>
+          @php
+            $course_id = App\Models\student_courses::where('student_id', Auth::id())->first()->course_id;
+          @endphp
+          @foreach(App\Models\labs::where('course_id', $course_id)->where('assign_to', 'all')->get() as $course)
+            @foreach($course->course->labs->where('assign_to', 'all') as $lab)
+                <div class="col-4">
+                    <div class="card mt-3" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$lab->course->course_name}}</h5>
+                          <hr>
+                        <h5 class="card-title">{{$lab->lab_name}}</h5>
+                        <p class="card-text">{{$lab->task_description}}</p>
+                        <a href="/student/lab/{{$lab->id}}/live" class="btn btn-primary">View Lab</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
           @endforeach
-        @endforeach
+        </div>
+
+        <h3 class="text-center mt-3">My Labs</h3>
+        <div class="row">
+          @php
+            $course_id = App\Models\student_courses::where('student_id', Auth::id())->first()->course_id;
+          @endphp
+            @foreach($course->course->labs->where('assign_to', Auth::id()) as $lab)
+                <div class="col-4">
+                    <div class="card mt-3" style="width: 18rem;">
+                        <div class="card-body">
+                          <h5 class="card-title">{{$lab->course->course_name}}</h5>
+                          <hr>
+                        <h5 class="card-title">{{$lab->lab_name}}</h5>
+                        <p class="card-text">{{$lab->task_description}}</p>
+                        <a href="/student/lab/{{$lab->id}}/live" class="btn btn-primary">View Lab</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
         
     </div>

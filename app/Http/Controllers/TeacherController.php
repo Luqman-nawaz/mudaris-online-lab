@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\courses;
 use App\Models\groups;
 use App\Models\idle;
+use App\Models\labassigned;
 use App\Models\labs;
 use App\Models\labstudents;
 use App\Models\student_courses;
@@ -239,21 +240,33 @@ class TeacherController extends Controller
     }
 
     public function saveLabs(Request $request){
+        
         $lab = [
             'course_id' => $request->course_id,
             'teacher_id' => 1,
             'lab_date' => $request->updated_at,
             'lab_name' => $request->name,
+            'assign_to' => $request->assign_task,
             'task_name' => $request->task_name,
             'task_description' => $request->task_description,
             'marks' => $request->grades,
         ];
 
-        if(labs::create($lab)){
-            return redirect('/teacher/courses');
-        }else{
-            return back();
+        $lab = labs::create($lab);
+
+        if($request->assign_task != 'all'){
+            $assignto = array(
+                'lab_id' => $lab->id,
+                'user_id' => $request->assign_task,
+            );
+        
+            if(labassigned::create($assignto)){
+                return redirect('/teacher/courses');
+            }else{
+                return back();
+            }
         }
 
+        return redirect('/teacher/courses');
     }
 }
