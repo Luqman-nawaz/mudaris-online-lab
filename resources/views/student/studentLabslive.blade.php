@@ -45,7 +45,7 @@
               <div class="card m-3">
                 <div class="card-body">
                   <ul>
-                    @foreach(App\Models\chat::where('lab_id', $lab_id)->get() as $chat)
+                    @foreach(App\Models\chat::where('lab_id', $lab_id)->where('group', 'class')->get() as $chat)
                           <li class="m-2"><b>@if($chat->group == 'teacher') {{App\Models\teacher::where('id', $chat->user_id)->get()->first()->name }} @else {{$chat->user->name}} @endif:</b> <Span @if($chat->group == 'teacher') style="color:red;" @endif>{{$chat->message}}</Span></li>
                     @endforeach
                   </ul>
@@ -76,29 +76,13 @@
                     </div>
                   </div>
                 </div>
-                <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Compiler Result</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        {{App\Models\labstudents::where('user_id', $user_id)->where('lab_id', $lab_id)->get()->first()->compiler_result}}
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Change Code</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
               <div class="card m-3">
                 <div class="card-body">
                   <ul>
-                    @foreach(App\Models\chat::where('lab_id', $lab_id)->get() as $chat)
+                    @foreach(App\Models\chat::where('lab_id', $lab_id)->where('group', 'group')->get() as $chat)
                           <li class="m-2"><b>@if($chat->group == 'teacher') {{App\Models\teacher::where('id', $chat->user_id)->get()->first()->name }} @else {{$chat->user->name}} @endif:</b> <Span @if($chat->group == 'teacher') style="color:red;" @endif>{{$chat->message}}</Span></li>
                         @endforeach
                   </ul>
@@ -111,10 +95,6 @@
                     </div>
                 </form>
                 </div>
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  View Teacher's Feedback
-                </button>
 
                
               </div>
@@ -154,6 +134,25 @@
           @endif
         @endif
     </div>
+
+    <div class="modal fade" id="staticBackdrops" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Compiler Result</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            {{App\Models\labstudents::where('user_id', $user_id)->where('lab_id', $lab_id)->get()->first()->compiler_result}}
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Change Code</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
     <form id="idleform" action="/idle" method="post">
       @csrf
       <input type="text" name="student_id" style="display: none;" value="{{Auth::id()}}"/>

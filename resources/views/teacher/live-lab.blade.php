@@ -265,7 +265,9 @@ img{ max-width:100%;}
                       <a href="/teacher/{{$lab->id}}/{{$students->student->id}}/grade"><button class="btn btn-sm btn-primary m-2">Grade Lab</button></a>
                       <a href="/teacher/student/{{$students->student->id}}/{{$lab->id}}/progress"><button class="btn btn-sm btn-success m-2">View Progress</button></a>
                       <a href="/teacher/student/performence"><button class="btn btn-sm btn-info m-2">Record</button></a>
+                      
                       &nbsp;&nbsp;&nbsp;@if(empty($students->current_answer))<span class="badge bg-danger rounded-pill">Idle</span>@else <span class="badge bg-success rounded-pill">Active</span> @endif
+                      
                     </li>
                   @endforeach
                   </ol>

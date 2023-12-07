@@ -240,27 +240,10 @@ img{ max-width:100%;}
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <h3 class="text-center mt-3">{{$student->student->name}}'s Solution</h3>
-        <div class="card text-center">
-            <div class="card-body">
-                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <a href="/teacher/student/{{$student->student->id}}/{{$lab_id}}/feedback"><button class="btn btn-danger me-md-2 btn-sm" type="button">Send Feedback</button></a>
-                </div>
-                <pre>
-                  {{$student->current_answer}}
-                </pre>
-            </div>
-            <div class="card-footer text-body-secondary">
-              Started: {{$student->created_at->diffForHumans();}}
-            </div>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+          <a href="/teacher/student/{{$student->student->id}}/{{$lab_id}}/feedback"><button class="btn btn-danger me-md-2 btn-sm" type="button">Send Feedback</button></a>
         </div>
-        <h3 class="text-center m-3">Compiler Result</h3>
-        <div class="card text-center">
-          <div class="card-body">
-              <pre>
-                {{$student->compiler_result}}
-              </pre>
-          </div>
-      </div>
+        <livewire:fetchcode :studentid="$student->id"/>
     </main>
   </div>
 </div>
