@@ -16,12 +16,9 @@ class Fetchcode extends Component
         $this->studentid = $studentid;
     }
 
-    public function save(){
-        $this->code = labstudents::Where('id', $this->studentid)->get()->first(); 
-    }
-
     public function render()
     {
+        $this->code = labstudents::Where('id', $this->studentid)->get()->first(); 
         return view('livewire.fetchcode');
     }
 }

@@ -2,10 +2,11 @@
     <div class="card-body">
         <pre>
           {{$code->current_answer}}
+          
         </pre>
     </div>
     <div class="card-footer text-body-secondary">
-      Started: {{$code->created_at->diffForHumans();}}
+      Started: {{$code->created_at->DiffForHumans();}}
     </div>
 
     <h3 class="text-center m-3">Compiler Result</h3>

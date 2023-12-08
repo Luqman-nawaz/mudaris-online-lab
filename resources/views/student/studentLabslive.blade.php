@@ -45,7 +45,7 @@
               <div class="card m-3">
                 <div class="card-body">
                   <ul>
-                    @foreach(App\Models\chat::where('lab_id', $lab_id)->where('group', 'class')->get() as $chat)
+                    @foreach(App\Models\chat::where('lab_id', $lab_id)->where('group', 'class')->orWhere('group', 'teacher')->get() as $chat)
                           <li class="m-2"><b>@if($chat->group == 'teacher') {{App\Models\teacher::where('id', $chat->user_id)->get()->first()->name }} @else {{$chat->user->name}} @endif:</b> <Span @if($chat->group == 'teacher') style="color:red;" @endif>{{$chat->message}}</Span></li>
                     @endforeach
                   </ul>
@@ -82,7 +82,7 @@
               <div class="card m-3">
                 <div class="card-body">
                   <ul>
-                    @foreach(App\Models\chat::where('lab_id', $lab_id)->where('group', 'group')->get() as $chat)
+                    @foreach(App\Models\chat::where('lab_id', $lab_id)->where('group', 'group')->orWhere('group', 'teacher')->get() as $chat)
                           <li class="m-2"><b>@if($chat->group == 'teacher') {{App\Models\teacher::where('id', $chat->user_id)->get()->first()->name }} @else {{$chat->user->name}} @endif:</b> <Span @if($chat->group == 'teacher') style="color:red;" @endif>{{$chat->message}}</Span></li>
                         @endforeach
                   </ul>
